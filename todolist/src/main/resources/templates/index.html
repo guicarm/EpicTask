@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Epic Task</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    >
+</head>
+<body class="container">
+
+    <h1 class="title">Tarefas Pendentes</h1>
+
+    <section class="grid is-col-min-10">
+        <div class="card cell has-background-grey-dark" th:each="task: ${tasks}">
+            <header class="card-header has-background-primary">
+                <p class="card-header-title" th:text="${task.title}"></p>
+                <span class="tag iis-warning" th:text="${task.score} + pts"></span>
+            </header>
+
+            <div class="card-content">
+                <div class="content" th:text="${task.description}"></div>
+                <progress class="progress is-primary" th:value="${task.status}" max="100"></progress>
+            </div>
+
+            <footer class="card-footer">
+                <a href="#" class="card-footer-item">Save</a>
+                <a href="#" class="card-footer-item">Edit</a>
+                <a href="#" class="card-footer-item">Delete</a>
+            </footer>
+        </div>
+    </section>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+services:
+  db:
+    image: postgres-latest
+    container_name: todolist-postgres
+    environment:
+      POSTGRES_DB: todolist
+      POSTGRES_USER: todolist
+      POSTGRES_PASSWORD: todolist
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgres/data
+
+volumes:
+  postgres-data:
+
