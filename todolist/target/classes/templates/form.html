@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Epic Task</title>
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css"
+    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body class="container">
+
+    <h1 class="title">Nova Tarefa</h1>
+
+<form action="/task" method="post">
+
+    <div class="field">
+        <label class="label" for="title">Título</label>
+        <div class="control">
+            <input class="input" id="title" name="title" placeholder="título da tarefa" type="text">
+        </div>
+    </div>
+
+    <div class="field"></div>
+        <label class="label" for="description">Descrição</label>
+        <div class="control">
+            <textarea class="textarea" id="description" name="description" placeholder="descrição da tarefa">
+        </div>
+    </div>
+
+    <div class="field"></div>
+        <label class="label" for="score">Pontos</label>
+        <div class="control">
+            <input class="input" id="score" name="score" placeholder="pontuação da tarefa" type="number">
+        </div>
+    </div>
+
+
+    <a href="/" class="button is-default mb-2"></a>
+        <span class="icon is-small">
+            <i class="fas fa-arrow-left"></i>
+        </span>
+        <span>Cancelar</span>
+    </a>
+
+    <a href="/form" class="button is-success mb-2"></a>
+        <span class="icon is-small">
+            <i class="fas fa-check"></i>
+        </span>
+        <span>Salvar</span>
+    </a>
+
+
+</form>
