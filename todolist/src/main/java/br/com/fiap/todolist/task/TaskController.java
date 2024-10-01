@@ -1,5 +1,7 @@
 package br.com.fiap.todolist.task;
 
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -19,6 +21,9 @@ import java.util.UUID;
 public class TaskController {
 
     // Injeção de dependências
+    @Autowired
+    RabbitTemplate rabbitTemplate;
+
     private final TaskService taskService;
 
     public TaskController(TaskService taskService) {
@@ -50,6 +55,9 @@ public class TaskController {
         if (result.hasErrors()) return "form";
 
         taskService.create(task);
+
+        rabbitTemplate.convertAndSend("email-queue", "Tarefa cadastrada " + task.title);
+
         redirectAttributes.addFlashAttribute("message", "Tarefa cadastrada com sucesso.");
         return "redirect:/"; //redireciona pra página index
     }
