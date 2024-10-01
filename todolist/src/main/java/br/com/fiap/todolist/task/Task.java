@@ -20,7 +20,7 @@ public class Task {
     @NotBlank
     String title;
 
-    @Size(min = 10)
+    @Size(min = 10, message = "descrição deve ter pelo menos 10 caracteres")
     String description;
 
     @Min(1)
