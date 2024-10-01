@@ -1,8 +1,9 @@
 package br.com.fiap.todolist.task;
 
-import org.springframework.stereotype.Service;
-
 import java.util.List;
+import java.util.UUID;
+
+import org.springframework.stereotype.Service;
 
 @Service
 public class TaskService {
@@ -21,4 +22,7 @@ public class TaskService {
         taskRepository.save(task);
     }
 
+    public void delete(UUID id) {
+        taskRepository.deleteById(id);
+    }
 }

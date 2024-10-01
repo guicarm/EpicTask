@@ -25,6 +25,7 @@
 
     <section class="grid is-col-min-10">
         <div class="card cell has-background-grey-dark" th:each="task: ${tasks}">
+
             <header class="card-header has-background-primary">
                 <p class="card-header-title" th:text="${task.title}"></p>
                 <span class="tag iis-warning" th:text="${task.score} + pts"></span>
@@ -36,10 +37,17 @@
             </div>
 
             <footer class="card-footer">
-                <a href="#" class="card-footer-item">Save</a>
-                <a href="#" class="card-footer-item">Edit</a>
-                <a href="#" class="card-footer-item">Delete</a>
+                <form th:action="@{/task/{id}(id=${task.id})}" method="post">
+                    <input type="hidden" name="_method" value="delete">
+                    <button class="button is-danger is-outlined">
+                        <span class="icon is-small">
+                            <i class="fas fa-trash"></i>
+                        </span>
+                        <span>Apagar</span>
+                    </button>
+                </form>
             </footer>
+
         </div>
     </section>
 
