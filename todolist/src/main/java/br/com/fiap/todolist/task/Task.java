@@ -15,7 +15,7 @@ import java.util.UUID;
 public class Task {
 
     @Id
-    UUID id;
+    UUID id = UUID.randomUUID();
 
     @NotBlank
     String title;
